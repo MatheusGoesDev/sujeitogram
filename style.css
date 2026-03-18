@@ -5,14 +5,24 @@
 }
 
 a {
+  color: var(--main-color);
   text-decoration: none;
-  color: #3c96ed;
 }
 
 body {
-  background-color: #fafafa;
+  --background: #fafafa;
+  --white: #ffffff;
+  --main-color: #3c96ed;
+  --alt-text: #8e8e8e;
+  --black: #000000;
+  --bg-panel: #e6e6e6;
+  --border: rgb(236, 234, 234);
+
+  background: var(--background);
   height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 18px;
@@ -36,7 +46,7 @@ body {
 }
 
 .left {
-  background-image: url(./assets/main-foto.png);
+  background-image: url("assets/main-foto.png");
   background-size: 450px;
   background-repeat: no-repeat;
   background-position: center;
@@ -48,9 +58,9 @@ body {
   padding-left: 20px;
 }
 
-.login-painel {
-  background-color: #fff;
-  border: 1px solid #e6e6e6;
+.login-panel {
+  background-color: var(--white);
+  border: 1px solid var(--bg-panel);
   text-align: center;
   padding: 20px 0;
 }
@@ -58,6 +68,7 @@ body {
 .logo-img {
   width: 175px;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -67,21 +78,22 @@ form {
 
 input[type="password"],
 input[type="text"] {
-  background-color: #fff;
-  border: 1px solid rgb(236, 234, 234);
+  background-color: var(--white);
+  border: 1px solid var(--border);
   height: 40px;
   border-radius: 4px;
   margin-top: 10px;
   padding: 10px;
   font-size: 13px;
   width: 320px;
-  color: #000;
+  color: var(--black);
 }
 
 input[type="password"]::placeholder,
 input[type="text"]::placeholder {
   color: rgb(165, 164, 164);
 }
+
 input[type="password"]:focus,
 input[type="text"]:focus {
   outline: 0;
@@ -93,9 +105,9 @@ input[type="submit"] {
   margin-top: 10px;
   height: 30px;
   border: 0;
-  background-color: #3c96ed;
+  background-color: var(--main-color);
   border-radius: 4px;
-  color: #fff;
+  color: var(--white);
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -103,13 +115,18 @@ input[type="submit"] {
 }
 
 .infobox {
-  background-color: #fff;
+  background-color: var(--white);
   height: 60px;
   border: 1px solid rgb(236, 234, 234);
   margin: 10px auto 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.infobox p {
+  user-select: none;
 }
 
 .infobox p a {
@@ -118,7 +135,7 @@ input[type="submit"] {
 }
 
 .get-app-panel {
-  margin-top: 10px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -126,28 +143,113 @@ input[type="submit"] {
   margin-top: 16px;
 }
 
-.app-buttons img{
+.app-buttons img {
   height: 40px;
   padding: 0 2px;
 }
-footer{
+
+footer {
   text-align: center;
   height: 50px;
   margin-top: -50px;
 }
 
-footer a{
-  color: #000;
+footer a {
+  color: var(--black);
   text-transform: uppercase;
   font-weight: bold;
   margin-right: 8px;
 }
 
-.text-small{
+.text-small {
   font-size: 12px;
   font-weight: bold;
-  color: gray;
+  color: var(--alt-text);
   text-transform: uppercase;
   padding-left: 20px;
   display: inline-block;
 }
+
+#container-signup {
+  margin: 0 auto;
+  min-height: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.message {
+  margin: 10px 70px;
+}
+.message span {
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 20px;
+  font-weight: bold;
+  color: var(--alt-text);
+}
+
+.cta-button {
+  width: 320px;
+  margin: 10px 0;
+  height: 35px;
+  background-color: var(--main-color);
+  color: var(--white);
+  border: 0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.divisor-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.line {
+  height: 1px;
+  background-color: var(--bg-panel);
+  width: 35%;
+}
+
+.divisor-tag{
+  font-weight: bold;
+  margin: 0 2.5%;
+  color: var(--alt-text);
+  user-select: none;
+}
+
+@media (max-width: 850px){
+  .left{
+    display: none;
+  }
+  #container{
+    width: 70%;
+  }
+  .right{
+    padding-left: 0;
+  }
+}
+@media (max-width: 560px) {
+  #container{
+    width: 90%;
+  }
+  #container-signup{
+    width: 90%;
+  }
+  input[type="password"], input[type="text"], input[type="submit"]{
+    width: 85%;
+  }
+
+  .cta-button{
+    width: 85%;
+  }
+  .message{
+    margin: 10px 25px;
+  }
+}
+
